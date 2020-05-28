@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        react-blog
+        {{ test }}
       </h1>
       <h2 class="subtitle">
         My majestic Nuxt.js project
@@ -28,13 +28,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
 import Logo from '~/components/Logo.vue'
 
-export default {
+@Component({
   components: {
     Logo
+  },
+  async asyncData (context) {
+
   }
+})
+
+export default class Index extends Vue {
+  test: string = 'default'
 }
 </script>
 

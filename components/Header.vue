@@ -22,18 +22,22 @@
           text-color="#fff"
           @select="handleSelect"
         >
-          <el-menu-item index="1">
+          <el-menu-item index="0">
             <nuxt-link to="/">
               首页
             </nuxt-link>
           </el-menu-item>
-          <el-menu-item index="2">
-            <nuxt-link to="/category">
-              技术杂谈
+          <el-menu-item
+            v-for="(type, i) of typeList"
+            :key="i"
+            :index="type.id+''"
+          >
+            <nuxt-link :to="{ path: 'category', query: { id: type.id }}">
+              {{ type.name }}
             </nuxt-link>
           </el-menu-item>
-          <el-menu-item index="4">
-            关于我
+          <el-menu-item>
+            <a href="http://resume.liu7.xyz/" target="_blank">关于我</a>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -49,96 +53,48 @@
             首页
           </nuxt-link>
         </div>
-        <div>
-          <nuxt-link to="/category">
-            技术杂谈
+        <div
+          v-for="(type, i) of typeList"
+          :key="type.id + i"
+        >
+          <nuxt-link :to="{ path: 'category', query: { id: type.id }}">
+            {{ type.name }}
           </nuxt-link>
         </div>
-        <div>关于我</div>
+        <div>
+          <a href="http://resume.liu7.xyz/" target="_blank">关于我</a>
+        </div>
       </el-collapse-item>
     </el-collapse>
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      a: 1,
-      activeNames: ''
-    }
-  },
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class Header extends Vue {
+  activeNames: string = ''
+  typeList: Object[] = []
+
   mounted () {
     this.getCategory()
-  },
-  methods: {
-    handleSelect () {
-    },
-    handleChange () {
+  }
 
-    },
-    getCategory () {
-      this.$axios.$get('http://123.56.40.114:7001/default/getTypeInfo/').then(
-        (res) => {
-          console.log(res)
-        }
-      )
-    }
+  handleSelect () {
+  }
+
+  handleChange () {
+  }
+
+  async getCategory () {
+    const { data } = await this.$axios.$get('http://123.56.40.114:7001/default/getTypeInfo/')
+    // console.log(data)
+    this.typeList = data
   }
 }
 </script>
 
 <style lang="scss">
-#header {
-  .header-logo {
-    height: 200px;
-    background-image: url(../static/header-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position-y: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,.15);
-    color: #fff;
-  }
-
-  .header-nav-big {
-    background-color: #545c64;
-
-    .header-nav-menu {
-      border-bottom: none;
-
-      li {
-        font-size: 1.2rem;
-        border-bottom: none;
-
-        &.is-active {
-          color: #545c64;
-          background-color: #F4F8FB !important;
-          border-bottom: none !important;
-        }
-
-        a {
-          text-decoration: none;
-          vertical-align: baseline;
-        }
-      }
-    }
-  }
-
-  .header-nav-small {
-    .el-collapse-item__header {
-      padding-left: 1rem;
-      border-bottom: 1px solid #F4F8FB;
-    }
-
-    .el-collapse-item__content {
-      text-align: center;
-      line-height: 2rem;
-      padding-bottom: 0;
-    }
-  }
-}
+@import "~/assets/scss/component/header.scss";
 </style>
