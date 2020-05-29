@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <header id="header">
     <div class="header-logo">
       <h1>
         LQ-QのBlog
@@ -13,7 +13,7 @@
       type="flex"
       justify="center"
     >
-      <el-col :xs="24" :sm="24" :md="16" :lg="12" :xl="12">
+      <el-col :xs="24" :sm="24" :md="23" :lg="12" :xl="12">
         <el-menu
           default-active="1"
           class="header-nav-menu"
@@ -66,7 +66,7 @@
         </div>
       </el-collapse-item>
     </el-collapse>
-  </div>
+  </header>
 </template>
 
 <script lang="ts">

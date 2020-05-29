@@ -1,81 +1,74 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        {{ test }}
-      </h1>
-      <h2 class="subtitle">
-        My majestic Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div id="home">
+    <el-row
+      type="flex"
+      justify="center"
+    >
+      <el-col
+        class="home-left"
+        :xs="24"
+        :sm="24"
+        :md="16"
+        :lg="8"
+        :xl="8"
+      >
+        <articles :article-list="articleList" />
+      </el-col>
+      <el-col
+        class="home-right hidden-sm-and-down"
+        :md="7"
+        :lg="4"
+        :xl="4"
+      >
+        <aside>
+          456
+        </aside>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import Logo from '~/components/Logo.vue'
+import Articles from '~/components/Articles.vue'
 
 @Component({
   components: {
-    Logo
+    Articles
   },
-  async asyncData (context) {
 
+  async asyncData (context) {
   }
 })
 
 export default class Index extends Vue {
-  test: string = 'default'
+  articleList: Object[] = [
+    {
+      title: '算法与分析',
+      date: '2020-02-02',
+      type: '学习总结',
+      viewCount: '22',
+      image: 'http://images.liu7.xyz/dataStructure.jpg',
+      introduce: '2222222222222222222222222222222222222222222222222222222222222222222'
+    }
+  ]
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #F4F8FB;
-}
+<style lang="scss">
+#home {
+  margin-top: 2rem;
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  .home-left {
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  }
 
-.links {
-  padding-top: 15px;
+  .home-right {
+    padding-left: 1rem;
+
+    aside {
+      background-color: green;
+    }
+  }
 }
 </style>
