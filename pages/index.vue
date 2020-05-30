@@ -13,6 +13,7 @@
         :xl="8"
       >
         <articles :article-list="articleList" />
+        <!-- <articles /> -->
       </el-col>
       <el-col
         class="home-right hidden-sm-and-down"
@@ -38,20 +39,17 @@ import Articles from '~/components/Articles.vue'
   },
 
   async asyncData (context) {
+    const { data } = await context.$axios.$get('/default/getArticleList/')
+    return { articleList: data }
   }
 })
 
 export default class Index extends Vue {
-  articleList: Object[] = [
-    {
-      title: '算法与分析',
-      date: '2020-02-02',
-      type: '学习总结',
-      viewCount: '22',
-      image: 'http://images.liu7.xyz/dataStructure.jpg',
-      introduce: '2222222222222222222222222222222222222222222222222222222222222222222'
-    }
-  ]
+  articleList: Object[] = []
+
+  mounted () {
+    // console.log(this.$api.getArticleList())
+  }
 }
 </script>
 

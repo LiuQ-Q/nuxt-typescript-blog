@@ -13,11 +13,11 @@
       <div class="item-icon">
         <span>
           <i class="el-icon-date" />
-          {{ article.date }}
+          {{ article.addTime }}
         </span>
         <span>
           <i class="el-icon-folder" />
-          {{ article.type }}
+          {{ article.typeName }}
         </span>
         <span>
           <i class="el-icon-view" />
@@ -44,6 +44,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 @Component
 export default class Articles extends Vue {
   @Prop(Array) articleList: Array<Object> | undefined
+
+  mounted () {
+  }
 }
 </script>
 

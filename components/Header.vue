@@ -88,7 +88,7 @@ export default class Header extends Vue {
   }
 
   async getCategory () {
-    const { data } = await this.$axios.$get('http://123.56.40.114:7001/default/getTypeInfo/')
+    const { data } = await this.$axios.$get('/default/getTypeInfo/')
     // console.log(data)
     this.typeList = data
   }
