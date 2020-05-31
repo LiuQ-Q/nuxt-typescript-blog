@@ -2,9 +2,9 @@ export interface blogConfig {
   /**
    * 主机名
    */
-  host: string;
+  host: string,
   /**
    * 端口号
    */
-  port: number;
+  port: number
 }

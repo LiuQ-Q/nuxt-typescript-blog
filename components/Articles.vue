@@ -6,7 +6,7 @@
       class="item my-card"
     >
       <div class="item-title">
-        <nuxt-link :to="{ path: 'detailed', query:{id: 1}}">
+        <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
           {{ article.title }}
         </nuxt-link>
       </div>
@@ -26,7 +26,7 @@
       </div>
       <div class="item-content">
         <div class="item-image">
-          <nuxt-link :to="{ path: 'detailed', query:{id: 1}}">
+          <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
             <img :src="article.image"></img>
           </nuxt-link>
         </div>

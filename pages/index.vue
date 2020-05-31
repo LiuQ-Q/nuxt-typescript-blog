@@ -9,8 +9,8 @@
         :xs="24"
         :sm="24"
         :md="16"
-        :lg="8"
-        :xl="8"
+        :lg="10"
+        :xl="10"
       >
         <articles :article-list="articleList" />
         <!-- <articles /> -->
@@ -22,7 +22,7 @@
         :xl="4"
       >
         <aside>
-          456
+          <author />
         </aside>
       </el-col>
     </el-row>
@@ -32,10 +32,12 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import Articles from '~/components/Articles.vue'
+import Author from '~/components/Author.vue'
 
 @Component({
   components: {
-    Articles
+    Articles,
+    Author
   },
 
   async asyncData (context) {
@@ -65,7 +67,6 @@ export default class Index extends Vue {
     padding-left: 1rem;
 
     aside {
-      background-color: green;
     }
   }
 }

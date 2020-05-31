@@ -1,4 +1,4 @@
-// import blogConfig from './blog.config'
+import blogConfig from './blog.config.ts'
 
 export default {
   mode: 'universal',
@@ -55,8 +55,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // baseURL: `http://${blogConfig.host}:${blogConfig.port}`
-    baseURL: 'http://123.56.40.114:7001'
+    baseURL: `http://${blogConfig.host}:${blogConfig.port}`
+    // baseURL: 'http://123.56.40.114:7001'
   },
   /*
   ** Build configuration

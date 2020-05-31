@@ -13,9 +13,9 @@
       type="flex"
       justify="center"
     >
-      <el-col :xs="24" :sm="24" :md="23" :lg="12" :xl="12">
+      <el-col :xs="24" :sm="24" :md="23" :lg="14" :xl="14">
         <el-menu
-          default-active="1"
+          default-active="0"
           class="header-nav-menu"
           mode="horizontal"
           background-color="#545c64"
