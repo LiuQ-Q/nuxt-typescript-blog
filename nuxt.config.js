@@ -26,13 +26,15 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/display.css',
+    '@fortawesome/fontawesome-free/css/all.min.css',
     '~/assets/scss/normalize.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/font-awesome'
   ],
   /*
   ** Nuxt.js dev-modules

@@ -14,20 +14,20 @@
       <div class="contact-icon">
         <span>
           <a href="https://github.com/LiuQ-Q" target="_blank">
-            <span class="el-icon-goods" />
+            <i class="fab fa-github" />
           </a>
         </span>
         <span
           @mouseenter="changeStatus('qq')"
           @mouseleave="changeStatus('qq')"
         >
-          <span class="el-icon-info" />
+          <i class="fab fa-qq" />
         </span>
         <span
           @mouseenter="changeStatus('weChat')"
           @mouseleave="changeStatus('weChat')"
         >
-          <span class="el-icon-loading" />
+          <i class="fab fa-weixin" />
         </span>
         <img
           src="~/static/qq.jpg"

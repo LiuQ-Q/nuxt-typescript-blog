@@ -42,6 +42,10 @@ import Author from '~/components/Author.vue'
 
   async asyncData (context) {
     const { data } = await context.$axios.$get('/default/getArticleList/')
+    console.log(data)
+    data.sort((a: Object, b: Object) => {
+      return b.addTime - a.addTime
+    })
     return { articleList: data }
   }
 })

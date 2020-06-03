@@ -10,10 +10,15 @@
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
+    transition: all .3s;
 
     img {
       width: 100%;
       height: 100%;
+    }
+
+    &:hover {
+      transform: rotate(360deg);
     }
   }
 
@@ -82,8 +87,20 @@
         margin: 0 .5rem 0 .5rem;
         border-radius: 50%;
 
-        span {
+        i {
           color: #fff;
+        }
+
+        &:nth-child(1):hover {
+          background-color: #24292E;
+        }
+
+        &:nth-child(2):hover {
+          background-color: #12B7F5;
+        }
+
+        &:nth-child(3):hover {
+          background-color: #83D943;
         }
       }
 
