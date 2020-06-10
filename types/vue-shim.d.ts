@@ -8,6 +8,6 @@ declare module "*.vue" {
 // 扩充
 declare module 'vue/types/vue' {
   interface Vue {
-    $axios: axios
+    $axios: any
   }
 }

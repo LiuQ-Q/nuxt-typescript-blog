@@ -8,6 +8,8 @@
         Do what you love,Love what you do
       </h3>
     </div>
+
+    <!-- 屏幕宽度 >= 768px -->
     <el-row
       class="header-nav-big hidden-xs-only"
       type="flex"
@@ -15,7 +17,7 @@
     >
       <el-col :xs="24" :sm="24" :md="23" :lg="14" :xl="14">
         <el-menu
-          default-active="0"
+          :default-active="categoryId"
           class="header-nav-menu"
           mode="horizontal"
           background-color="#545c64"
@@ -36,12 +38,14 @@
               {{ type.name }}
             </nuxt-link>
           </el-menu-item>
-          <el-menu-item>
+          <el-menu-item index="999">
             <a href="http://resume.liu7.xyz/" target="_blank">关于我</a>
           </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>
+
+    <!-- 屏幕宽度 < 768px -->
     <el-collapse
       v-model="activeNames"
       class="header-nav-small hidden-sm-and-up"
@@ -76,9 +80,11 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class Header extends Vue {
   activeNames: string = ''
   typeList: Object[] = []
+  categoryId: any = '0'
 
   mounted () {
     this.getCategory()
+    this.setCategoryId()
   }
 
   handleSelect () {
@@ -89,8 +95,15 @@ export default class Header extends Vue {
 
   async getCategory () {
     const { data } = await this.$axios.$get('/default/getTypeInfo/')
-    // console.log(data)
     this.typeList = data
+  }
+
+  setCategoryId () {
+    if (this.$route.query.id) {
+      this.categoryId = this.$route.query.id
+    } else {
+      this.categoryId = '0'
+    }
   }
 }
 </script>

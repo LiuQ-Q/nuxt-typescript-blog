@@ -40,11 +40,10 @@ import Author from '~/components/Author.vue'
     Author
   },
 
-  async asyncData (context) {
+  async asyncData (context: any) {
     const { data } = await context.$axios.$get('/default/getArticleList/')
-    console.log(data)
-    data.sort((a: Object, b: Object) => {
-      return b.addTime - a.addTime
+    data.sort((a: any, b: any) => {
+      return Date.parse(b.addTime) - Date.parse(a.addTime)
     })
     return { articleList: data }
   }
@@ -63,15 +62,8 @@ export default class Index extends Vue {
 #home {
   margin-top: 2rem;
 
-  .home-left {
-
-  }
-
   .home-right {
     padding-left: 1rem;
-
-    aside {
-    }
   }
 }
 </style>
