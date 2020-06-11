@@ -36,8 +36,7 @@
               :toc-id="`nav-list`"
               :toc-first-level="2"
               :toc-last-level="3"
-            >{{ article[0].articleContent }}
-            </vue-markdown>
+            >{{ article[0].articleContent }}</vue-markdown>
           </div>
         </div>
       </el-col>
