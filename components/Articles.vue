@@ -6,9 +6,10 @@
       class="item my-card"
     >
       <div class="item-title">
-        <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
+        <!-- <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
           {{ article.title }}
-        </nuxt-link>
+        </nuxt-link> -->
+        <a :href="`/detailed?id=${article.id}`">{{ article.title }}</a>
       </div>
       <div class="item-icon">
         <span>
@@ -26,9 +27,12 @@
       </div>
       <div class="item-content">
         <div class="item-image">
-          <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
+          <!-- <nuxt-link :to="{ path: 'detailed', query:{id: article.id}}">
             <img :src="article.image"></img>
-          </nuxt-link>
+          </nuxt-link> -->
+          <a :href="`/detailed?id=${article.id}`">
+            <img :src="article.image"></img>
+          </a>
         </div>
         <span class="item-introduce">
           {{ article.introduce }}

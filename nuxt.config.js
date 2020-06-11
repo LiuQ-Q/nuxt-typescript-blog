@@ -34,7 +34,8 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/font-awesome'
+    '@/plugins/font-awesome',
+    '@/plugins/vue-markdown'
   ],
   /*
   ** Nuxt.js dev-modules
