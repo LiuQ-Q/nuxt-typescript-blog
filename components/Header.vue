@@ -25,21 +25,17 @@
           @select="handleSelect"
         >
           <el-menu-item index="0">
-            <nuxt-link to="/">
-              首页
-            </nuxt-link>
+            首页
           </el-menu-item>
           <el-menu-item
             v-for="(type, i) of typeList"
             :key="i"
             :index="type.id+''"
           >
-            <nuxt-link :to="{ path: 'category', query: { id: type.id }}">
-              {{ type.name }}
-            </nuxt-link>
+            {{ type.name }}
           </el-menu-item>
           <el-menu-item index="999">
-            <a href="http://resume.liu7.xyz/" target="_blank">关于我</a>
+            关于我
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -87,7 +83,15 @@ export default class Header extends Vue {
     this.setCategoryId()
   }
 
-  handleSelect () {
+  handleSelect (index: String) {
+    if (index === '0') {
+      this.$router.push({ path: '/' })
+    } else if (index === '999') {
+      this.$router.push({ path: '/' })
+      window.open('http://resume.liu7.xyz/')
+    } else {
+      this.$router.push({ path: 'category?id=' + index })
+    }
   }
 
   handleChange () {
