@@ -4,6 +4,27 @@
     margin-bottom: 1.5rem;
     padding: 1rem 1rem 0rem 1.5rem;
 
+    .item-box {
+      animation: itemBoxAnimation .5s;
+      -webkit-animation: itemBoxAnimation .5s;
+    }
+
+    @keyframes itemBoxAnimation {
+      from {
+        opacity: 0;
+      } to {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes itemBoxAnimation {
+      from {
+        opacity: 0;
+      } to {
+        opacity: 1;
+      }
+    }
+
     .item-title {
       font-size: 1.3rem;
 
