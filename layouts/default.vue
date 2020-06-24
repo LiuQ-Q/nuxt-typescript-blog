@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ribbon />
     <my-header />
     <nuxt />
   </div>
@@ -8,14 +9,17 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import myHeader from '~/components/Header.vue'
+import Ribbon from '~/components/Ribbon.vue'
 
 @Component({
   components: {
-    myHeader
+    myHeader,
+    Ribbon
   }
 })
 
-export default class App extends Vue {}
+export default class App extends Vue {
+}
 </script>
 
 <style>

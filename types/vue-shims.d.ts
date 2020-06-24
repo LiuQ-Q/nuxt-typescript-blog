@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import axios from 'axios'
 
 declare module "*.vue" {
   import Vue from "vue"

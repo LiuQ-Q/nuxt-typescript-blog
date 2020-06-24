@@ -22,7 +22,7 @@
         :xl="4"
       >
         <aside>
-          <author />
+          <author style="position:sticky;top:1rem;" />
         </aside>
       </el-col>
     </el-row>
@@ -64,6 +64,10 @@ export default class Index extends Vue {
 
   .home-right {
     padding-left: 1rem;
+
+    aside {
+      height: 100%;
+    }
   }
 }
 </style>

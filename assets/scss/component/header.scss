@@ -1,5 +1,6 @@
 #header {
   .header-logo {
+    position: relative;
     height: 200px;
     background-image: url(../static/header-bg.jpg);
     background-repeat: no-repeat;
@@ -37,7 +38,16 @@
     }
   }
 
+  .is-fixed{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
+
   .header-nav-small {
+    position: relative;
+
     .el-collapse-item__header {
       padding-left: 1rem;
       border-bottom: 1px solid #F4F8FB;

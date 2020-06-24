@@ -95,7 +95,7 @@ export default class Articles extends Vue {
     const io = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(index)
+          // console.log(index)
           // this.loadStatuList[index] = true
           Vue.set(this.loadStatuList, index, true)
         }

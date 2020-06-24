@@ -17,6 +17,7 @@
     >
       <el-col :xs="24" :sm="24" :md="23" :lg="14" :xl="14">
         <el-menu
+          id="boxFixed"
           :default-active="categoryId"
           class="header-nav-menu"
           mode="horizontal"
@@ -77,10 +78,19 @@ export default class Header extends Vue {
   activeNames: string = ''
   typeList: Object[] = []
   categoryId: any = '0'
+  // navIsFixed: Boolean = false
+  // navOffsetTop: number = 0
 
   mounted () {
     this.getCategory()
     this.setCategoryId()
+
+    // if (process.browser) {
+    //   window.addEventListener('scroll', this.initHeight)
+    //   this.$nextTick(() => {
+    //     this.navOffsetTop = document.querySelector('#boxFixed').offsetTop
+    //   })
+    // }
   }
 
   handleSelect (index: String) {
@@ -109,6 +119,11 @@ export default class Header extends Vue {
       this.categoryId = '0'
     }
   }
+
+  // initHeight () {
+  //   const scrollTop: any = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+  //   this.navIsFixed = scrollTop > this.navOffsetTop
+  // }
 }
 </script>
 
