@@ -82,7 +82,17 @@ import Author from '~/components/Author.vue'
 })
 
 export default class Detailed extends Vue {
+  mounted () {
+    const detailed: any = this
+    const article: any = detailed.article[0]
+    // const article: any = (this as any).detailed.article[0]
 
+    this.$axios.post('/default/updateArticle/', {
+      id: article.id,
+      view_count: article.viewCount + 1
+    })
+    // console.log(this)
+  }
 }
 </script>
 
