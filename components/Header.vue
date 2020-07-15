@@ -28,12 +28,11 @@
           <el-menu-item index="0">
             首页
           </el-menu-item>
-          <el-menu-item
-            v-for="(type, i) of typeList"
-            :key="i"
-            :index="type.id+''"
-          >
-            {{ type.name }}
+          <el-menu-item index="1">
+            技术杂谈
+          </el-menu-item>
+          <el-menu-item index="2">
+            学习总结
           </el-menu-item>
           <el-menu-item index="999">
             关于我
@@ -54,12 +53,14 @@
             首页
           </nuxt-link>
         </div>
-        <div
-          v-for="(type, i) of typeList"
-          :key="type.id + i"
-        >
-          <nuxt-link :to="{ path: 'category', query: { id: type.id }}">
-            {{ type.name }}
+        <div>
+          <nuxt-link to="/category?id=1">
+            技术杂谈
+          </nuxt-link>
+        </div>
+        <div>
+          <nuxt-link to="/category?id=2">
+            学习总结
           </nuxt-link>
         </div>
         <div>
@@ -76,13 +77,13 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class Header extends Vue {
   activeNames: string = ''
-  typeList: Object[] = []
+  // typeList: Object[] = []
   categoryId: any = '0'
   // navIsFixed: Boolean = false
   // navOffsetTop: number = 0
 
   mounted () {
-    this.getCategory()
+    // this.getCategory()
     this.setCategoryId()
 
     // if (process.browser) {
@@ -107,10 +108,11 @@ export default class Header extends Vue {
   handleChange () {
   }
 
-  async getCategory () {
-    const { data } = await this.$axios.$get('/default/getTypeInfo/')
-    this.typeList = data
-  }
+  // async getCategory () {
+  //   const { data } = await this.$axios.$get('/default/getTypeInfo/')
+  //   this.typeList = data
+  //   console.log(data)
+  // }
 
   setCategoryId () {
     if (this.$route.query.id) {

@@ -12,7 +12,8 @@
         :lg="10"
         :xl="10"
       >
-        <articles :article-list="articleList" />
+        <loading v-if="!loadStatus" />
+        <articles v-if="loadStatus" :article-list="articleList" />
         <!-- <articles /> -->
       </el-col>
       <el-col
@@ -33,11 +34,13 @@
 import { Vue, Component } from 'vue-property-decorator'
 import Articles from '~/components/Articles.vue'
 import Author from '~/components/Author.vue'
+import Loading from '~/components/Loading.vue'
 
 @Component({
   components: {
     Articles,
-    Author
+    Author,
+    Loading
   },
 
   async asyncData (context: any) {
@@ -51,9 +54,11 @@ import Author from '~/components/Author.vue'
 
 export default class Index extends Vue {
   articleList: Object[] = []
+  loadStatus: Boolean = false
 
   mounted () {
     // console.log(this.$api.getArticleList())
+    this.loadStatus = true
   }
 }
 </script>

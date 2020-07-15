@@ -26,15 +26,14 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/display.css',
-    '@fortawesome/fontawesome-free/css/all.min.css',
-    '~/assets/scss/normalize.scss'
+    '~/assets/scss/normalize.scss',
+    '~/assets/scss/iconfont.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/font-awesome',
     '@/plugins/vue-markdown'
   ],
   /*
@@ -66,6 +65,7 @@ export default {
   */
   build: {
     transpile: [/^element-ui/],
+    extractCSS: { allChunks: true },
     /*
     ** You can extend webpack config here
     */

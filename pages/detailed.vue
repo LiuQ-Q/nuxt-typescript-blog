@@ -12,7 +12,7 @@
         :lg="10"
         :xl="10"
       >
-        <div class="article my-card">
+        <div v-if="loadStatus" class="article my-card">
           <div class="article-title">
             {{ article[0].title }}
           </div>
@@ -39,6 +39,8 @@
             >{{ article[0].articleContent }}</vue-markdown>
           </div>
         </div>
+
+        <loading v-if="!loadStatus" />
       </el-col>
       <el-col
         class="detailed-right hidden-sm-and-down"
@@ -63,10 +65,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Author from '~/components/Author.vue'
+import Loading from '~/components/Loading.vue'
 
 @Component({
   components: {
-    Author
+    Author,
+    Loading
   },
 
   watchQuery: ['id'],
@@ -82,10 +86,15 @@ import Author from '~/components/Author.vue'
 })
 
 export default class Detailed extends Vue {
+  loadStatus: Boolean = false
+
   mounted () {
     const detailed: any = this
     const article: any = detailed.article[0]
     // const article: any = (this as any).detailed.article[0]
+    setTimeout(() => {
+      this.loadStatus = true
+    }, 500)
 
     this.$axios.post('/default/updateArticle/', {
       id: article.id,

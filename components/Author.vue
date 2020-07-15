@@ -13,21 +13,19 @@
       </div>
       <div class="contact-icon">
         <span>
-          <a href="https://github.com/LiuQ-Q" target="_blank">
-            <i class="fab fa-github" />
-          </a>
+          <a href="https://github.com/LiuQ-Q" target="_blank"><i class="iconfont icon-github" /></a>
         </span>
         <span
           @mouseenter="changeStatus('qq')"
           @mouseleave="changeStatus('qq')"
         >
-          <i class="fab fa-qq" />
+          <i class="iconfont icon-qq" />
         </span>
         <span
           @mouseenter="changeStatus('weChat')"
           @mouseleave="changeStatus('weChat')"
         >
-          <i class="fab fa-weixin" />
+          <i class="iconfont icon-wechat" />
         </span>
         <img
           src="~/static/qq.jpg"
@@ -49,8 +47,8 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class Author extends Vue {
-  private qqStatus: string = 'none'
-  private weChatStatus: string = 'none'
+  qqStatus: string = 'none'
+  weChatStatus: string = 'none'
 
   changeStatus (target: string) {
     if (target === 'qq') {
